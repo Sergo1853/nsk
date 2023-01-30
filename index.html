@@ -1,1 +1,52 @@
-html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+ 
+<h1>Calculator</h1>
+ 
+<form action="" method="post">
+    <input type="text" name="num1" placeholder="Enter first number">
+    <input type="text" name="num2" placeholder="Enter second number">
+    <select name="operator">
+        <option>Select Operation</option>
+        <option>Add</option>
+        <option>Subtract</option>
+        <option>Multiply</option>
+        <option>Divide</option>
+    </select>
+    <br>
+    <button type="submit" name="submit" value="submit">Submit</button>
+</form>
+ 
+<?php
+    if (isset($_POST['submit'])) {
+        $num1 = $_POST['num1'];
+        $num2 = $_POST['num2'];
+        $operator = $_POST['operator'];
+ 
+        switch ($operator) {
+            case 'Add':
+                $result = $num1 + $num2;
+                break;
+            case 'Subtract':
+                $result = $num1 - $num2;
+                break;
+            case 'Multiply':
+                $result = $num1 * $num2;
+                break;
+            case 'Divide':
+                $result = $num1 / $num2;
+                break;
+            default:
+                echo 'Error! Please try again.';
+        }
+    }
+ 
+    echo 'Result: '.$result;
+?>
+ 
+</body>
+</html>
